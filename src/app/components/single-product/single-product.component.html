@@ -1,0 +1,19 @@
+<div class="row mt-5 align-items-center justify-content-center">
+    <div class="col-5 position-relative mb-3">
+        <a class="d-block">
+            <img class="img-fluid" src="{{Product.url}}" alt="...">
+        </a>
+    </div>
+    <div class="col-2">
+        <h3> {{Product.name}}</h3>
+        <p class="small text-muted fa-1x">${{Product.price}}</p>
+        <select name="num" class="px-4" (change)="getAmount($event)">
+            <option value="number">...</option>
+            <option value="{{Number}}" *ngFor="let Number of Numbers">{{Number}}</option>
+        </select>
+        <br>
+        <button class="btn btn-sm btn-primary my-3" type="submit" (click) ="addToCart(Product.id)"> Add To Cart</button>
+        <br>
+        <a routerLink="/"> Back To Product List</a>
+    </div>
+</div>

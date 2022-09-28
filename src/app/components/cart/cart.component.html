@@ -1,0 +1,73 @@
+<div class="row mt-5">
+    <div class="col-6">
+
+        <div class="row mt-5 align-items-center justify-content-center" *ngFor="let Product of Products; let i = index">
+            <div class="col-3 position-relative mb-3">
+                <a class="d-block">
+                    <img class="img-fluid" src="{{Product.url}}" alt="...">
+                </a>
+            </div>
+            <div class="col-4">
+                <h3> {{Product.name}}</h3>
+                <p class="small text-muted fa-1x">${{Product.price}}</p>
+                <input type="text" class="w-50 text-center" value="{{cartProduct[i].quentity}}" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col-4">
+                <h5>Total : {{total}}</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-outline my-2">
+                <label class="form-label my-3" for="name">Full Name</label>
+                <input id="name" type="text" class="form-control form-control-lg" formControlName="name"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="( Minimum 3 Characters )"
+                    autofocus />
+
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <h3 class="text-danger" *ngIf="f.name.errors.required">
+                        Required
+                    </h3>
+                </div>
+            </div>
+
+            <div class="form-outline my-2">
+                <label class="form-label my-3" for="address">Address</label>
+                <input id="address" type="text" class="form-control form-control-lg" formControlName="address"
+                    [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+                    placeholder="( Minimum 6 Characters )" />
+
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <h3 class="text-danger" *ngIf="f.address.errors.required">
+                        Required
+                    </h3>
+                </div>
+            </div>
+
+            <div class="form-outline my-2">
+                <label class="form-label my-3" for="credit">Credit Card Number</label>
+                <input id="credit" type="text" class="form-control form-control-lg" formControlName="credit"
+                    [ngClass]="{ 'is-invalid': submitted && f.credit.errors }" placeholder="( 16 Digits Number )" />
+
+                <div *ngIf="submitted && f.credit.errors" class="invalid-feedback">
+                    <h3 class="text-danger" *ngIf="f.credit.errors.required">
+                        Required
+                    </h3>
+                </div>
+            </div>
+
+            <h6>We'll never share your payment details with anyone else.</h6>
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
