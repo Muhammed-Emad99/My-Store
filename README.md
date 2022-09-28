@@ -1,6 +1,31 @@
-# Mystore
+# My Store
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+
+- Is an E-commerce website that allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location.
+
+## Features
+
+- Responsive
+- SPA (Single Page Application)
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Font Color |  #111 |
+| Font Color 2 |  #6c757d |
+| Navbar Color | #1298BF |
+| Background Color | #fff |
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install my-project
+  cd my-project
+```
 
 ## Development server
 
@@ -14,14 +39,27 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Related
+
+Here are some related projects
+
+[E-shop](https://github.com/Muhammed-Emad99/E-Shop)
+
+## 🚀 About Me
+I'm Muhammed Emad. I'm a Angular developer. I have 1 years experience
+in FrontEnd Development.
+
+## 🛠 Skills
+- HTML.
+- CSS.
+- BootStrap.
+- Javascript.
+- Typescript
+- Angular. 
+
+## Authors
+Muhammed-Emad99 (https://github.com/Muhammed-Emad99)
