@@ -7,11 +7,11 @@ import {
   FormGroup,
   Validators,
   FormBuilder,
+  NgForm,
 } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-cart',
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  Numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   id: number = 1;
   idArr: any = [];
   Products: any = [];
@@ -46,6 +47,7 @@ export class CartComponent implements OnInit {
     this.getCart();
     this.getProducts();
     this.getAllProducts();
+    // this.getTotal();
   }
 
   get f() {
@@ -63,37 +65,53 @@ export class CartComponent implements OnInit {
       this.idArr.push(element.Product);
       console.log(this.idArr);
     });
-
   }
 
   getAllProducts() {
     this.service.getProducts().subscribe((res: any) => {
       this.idArr.forEach((element: any) => {
         this.Products.push(res[element - 1]);
+        console.log(this.Products[0].price);
       });
-      for (let i = 0; i < this.Products.length; i++) {
-        const element = this.Products[i];
-        this.total += this.Products[i].price * this.cartProduct[i].quentity;
-        console.log(this.total);
-        console.log(this.Products[i].price);
-        console.log(this.cartProduct[i].quentity);
-      }
-      // this.total += this.Products[0].price * this.Products[0].quentity;
-      // console.log(this.Products);
+      this.getTotal();
     });
   }
-
-  onSubmit() {
+  getTotal() {
+    for (let i = 0; i < this.Products.length; i++) {
+      const element = this.Products[i];
+      this.total += this.Products[i].price * this.cartProduct[i].quentity;
+      console.log(this.total);
+      console.log(this.Products[i].price);
+      console.log(this.cartProduct[i].quentity);
+    }
+  }
+  onSubmit(loginForm :NgForm) {
     this.submitted = true;
 
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
+    // // stop here if form is invalid
+    if (this.loginForm.invalid && this.total === 0) {
       return;
     }
 
-    this.toastrService.success('Sucessfully Paid');
-    this.router.navigateByUrl('/');
+    else{
+      alert('Sucessfully Paid!');
+      this.router.navigateByUrl('/success');
+      while (this.cartProduct.length > 0) {
+        this.cartProduct.pop();
+      }
+      console.log(loginForm.value, loginForm.valid);
+    }
 
-   
+    // this.toastrService.success('Sucessfully Paid');
+
+  }
+
+  removeFromCart(id: any) {
+    let index = this.cartProduct.indexOf(id);
+    let DeletedItemPrice =
+      this.Products[index].price * this.cartProduct[index].quentity;
+    this.total -= DeletedItemPrice;
+    this.cartProduct.splice(index, 1);
+    this.Products.splice(index, 1);
   }
 }

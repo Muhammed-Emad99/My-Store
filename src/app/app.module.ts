@@ -10,6 +10,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { SuccessPageComponent } from './components/success-page/success-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     SingleProductComponent,
     CartComponent,
+    ProductItemComponent,
+    SuccessPageComponent,
   ],
   imports: [
     BrowserModule, 

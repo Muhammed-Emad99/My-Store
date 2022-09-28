@@ -6,9 +6,9 @@
     </div>
     <div class="col-2">
         <h3> {{Product.name}}</h3>
+        <p class="small fa-1x">{{Product.description}}</p>
         <p class="small text-muted fa-1x">${{Product.price}}</p>
         <select name="num" class="px-4" (change)="getAmount($event)">
-            <option value="number">...</option>
             <option value="{{Number}}" *ngFor="let Number of Numbers">{{Number}}</option>
         </select>
         <br>

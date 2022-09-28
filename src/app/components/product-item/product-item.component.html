@@ -1,0 +1,17 @@
+<div class="product text-center">
+    <div class="position-relative mb-3">
+        <a class="d-block" routerLink="../single-product/{{Product.id}}">
+            <img class="img-fluid" src="{{Product.url}}" alt="...">
+        </a>
+
+    </div>
+
+    <h3> <a class="h4" routerLink="../product-details/{{Product.id}}">{{Product.name}}</a></h3>
+    <p class="small text-muted fa-1x">${{Product.price}}</p>
+    <select name="num" class="px-4" (change)="getAmount($event)">
+        <option value="{{Number}}" *ngFor="let Number of Numbers">{{Number}}</option>
+    </select>
+    <br>
+    <button class="btn btn-sm btn-primary m-3" type="submit" (click)="addToCart(Product.id)"> Add To Cart</button>
+
+</div>

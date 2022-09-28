@@ -6,3 +6,7 @@ img{
 input , h3{
     font-size: 0.8rem;
 }
+
+.parent{
+    flex-direction: column;
+}
