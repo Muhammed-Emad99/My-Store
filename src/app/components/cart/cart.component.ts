@@ -113,5 +113,6 @@ export class CartComponent implements OnInit {
     this.total -= DeletedItemPrice;
     this.cartProduct.splice(index, 1);
     this.Products.splice(index, 1);
+    alert('Deleted Sucessfully!');
   }
 }
